@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaInventario.Infraestructure.DbContexts;
 
@@ -11,9 +12,11 @@ using SistemaInventario.Infraestructure.DbContexts;
 namespace SistemaInventario.Infraestructure.Migrations
 {
     [DbContext(typeof(UserAppDbContext))]
-    partial class UserAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240313085502_fourth")]
+    partial class fourth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -13,5 +13,6 @@ namespace SistemaInventario.Application.Interfaces
         Task<UserServiceResponse> RegisterUserAsync(UserRegisterDto userDto);
         Task<UserServiceResponse> LoginUserAsync(UserLoginDto userLoginDto);
         Task<UserServiceResponse> GetCurrentUser(string email);
+        Task<List<UserDto>> GetAllUsers();
     }
 }

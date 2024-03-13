@@ -30,7 +30,7 @@ namespace SistemaInventario.Application.Services
         }
 
         public async Task<UserServiceResponse> RegisterUserAsync(UserRegisterDto userDto)
-        {
+        {         
             var userExist = await _userManager.FindByEmailAsync(userDto.Email);
             if (userExist != null)
                 return new UserServiceResponse { Success = false, Message = "There is already a registered user with this email" };
@@ -54,7 +54,7 @@ namespace SistemaInventario.Application.Services
         }
         public string CreateToken(UserApp user)
         {
-            string role = "User";
+            string role = user.Role;
             List<Claim> claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, user.UserName),
@@ -81,7 +81,19 @@ namespace SistemaInventario.Application.Services
         {
             var user = await _userManager.FindByEmailAsync(email);
 
-            return new UserServiceResponse { Success = true, Message = "The user was successfully login", User = _mapper.Map<UserDto>(user) };
+            return new UserServiceResponse { Success = true, Message = "", User = _mapper.Map<UserDto>(user) };
         }
+        public async Task<List<UserDto>> GetAllUsers()
+        {
+            var users =  _userManager.Users.ToList();
+            List<UserDto> usersDto = new List<UserDto>();
+
+            foreach (var user in users)
+            {
+                usersDto.Add(_mapper.Map<UserDto>(user));
+            }
+            return usersDto;
+        }
+
     }
 }

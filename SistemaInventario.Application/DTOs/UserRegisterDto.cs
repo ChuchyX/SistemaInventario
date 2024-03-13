@@ -12,11 +12,7 @@ namespace SistemaInventario.Application.DTOs
     {
         [Required]
         [NotNull]
-        public string Username { get; set; }
-
-        [Required]
-        [NotNull]
-        public string Password { get; set; }
+        public int Age { get; set; }
 
         [Required]
         [NotNull]
@@ -24,13 +20,18 @@ namespace SistemaInventario.Application.DTOs
 
         [Required]
         [NotNull]
-        public int Edad { get; set; }
+        public string Gender { get; set; }
 
         [Required]
         [NotNull]
-        public string Sexo { get; set; }
+        public string Password { get; set; }
+
         [Required]
         [NotNull]
-        public string Rol { get; set; }
+        public string Role { get; set; }
+
+        [Required]
+        [NotNull]
+        public string Username { get; set; }  
     }
 }

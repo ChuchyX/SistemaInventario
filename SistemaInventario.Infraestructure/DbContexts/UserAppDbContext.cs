@@ -16,5 +16,11 @@ namespace SistemaInventario.Infraestructure.DbContexts
 
         }
         public virtual DbSet<UserApp> Users { get; set; }
+
+        public virtual DbSet<Producto> Productos { get; set; }
+        public virtual DbSet<Categoria> Categorias { get; set; }
+        public virtual DbSet<Proveedor> Proveedores { get; set; }
+        public virtual DbSet<Transaccion> Transacciones { get; set; }
+
     }
 }

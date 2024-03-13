@@ -20,6 +20,7 @@ namespace SistemaInventario.API.Controllers
         }
 
         [HttpPost("register")]
+        [Authorize]
         public async Task<ActionResult<UserServiceResponse>> Register(UserRegisterDto user)
         {
             var result = await _userService.RegisterUserAsync(user);
@@ -40,6 +41,25 @@ namespace SistemaInventario.API.Controllers
             return Ok(result);
         }
 
+        [HttpPost("profilepicture")]
+        [Authorize]
+        public async Task<ActionResult<UserServiceResponse>> UploadProfilePicture(IFormFile image)
+        {
+            string test = image.FileName;
+
+            return Ok();
+        }
+
+        [HttpGet("getallusers")]
+        [Authorize]
+        public async Task<ActionResult<List<UserDto>>> GetAllUsers()
+        {        
+            var result = await _userService.GetAllUsers();
+
+            return result;
+        }
+
+        //Este es solo para testear y hacer pruebas con respecto a identificar el current user que se encuentra logueado
         [HttpGet("test")]
         [Authorize]
         public async Task<ActionResult> Test()

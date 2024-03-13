@@ -10,8 +10,9 @@ namespace SistemaInventario.Application.DTOs
     {
         public string Username { get; set; }
         public string Email { get; set; }
-        public int Edad { get; set; }
-        public string Sexo { get; set; }
-        public string Rol { get; set; }
+        public int Age { get; set; }
+        public string Gender { get; set; }
+        public string Role { get; set; }
+        public string ProfilePicture { get; set; }
     }
 }
